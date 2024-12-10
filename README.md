@@ -4,6 +4,7 @@
 
 ## Jenkins
 
+### Install Jenkins
 Terminal 1
 
 ```
@@ -35,6 +36,9 @@ Finally a working jenkin website. Later will be call dashboard, as you can see t
 ![alt text](Jenkins_website_07_00.png)
 
 If you happen to get to the dashbord image without installing procedures before, just do the next step.
+
+###  Create an empty Jenkins pipeline for automating the test process
+- follow Section24, Unit 10.8 until the end.
 
 ## Build and run dockers manually
 
