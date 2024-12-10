@@ -196,6 +196,14 @@ git add tmp.txt
 git commit -m "add tmp.txt for just updating, but I am waiting to see Jenkin webhook to build"
 git push origin master
 ```
+You should see the following, with some clicks.
+
+![alt text](Jenkins_website_79_12.png)
+![alt text](Jenkins_website_79_13.png)
+![alt text](Jenkins_website_79_14.png)
+![alt text](Jenkins_website_79_15.png)
+![alt text](Jenkins_website_a7_01.png)
+
 
 --- end Jenkins -----
 
