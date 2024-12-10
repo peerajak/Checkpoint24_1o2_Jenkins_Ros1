@@ -4,7 +4,13 @@
 
 ## Jenkins
 
-### Install Jenkins
+There are 3 steps
+
+- Install Jenkins
+- Create a Jenkins pipeline for automating the test process
+- Automate the test process on each Git push, pull request
+
+### Step 1 Install Jenkins
 Terminal 1
 
 ```
@@ -37,7 +43,7 @@ Finally a working jenkin website. Later will be call dashboard, as you can see t
 
 If you happen to get to the dashbord image without installing procedures before, just do the next step.
 
-###  Create an empty Jenkins pipeline for automating the test process
+### Step 2. Create a Jenkins pipeline for automating the test process
 
 Install all required plugin 
 
@@ -96,9 +102,15 @@ Build the project again, this time check the gazebo, you should see the robot mo
 
 ![alt text](Jenkins_website_a7_01.png)
 
-- follow Section24, Unit 10.13 until the end.
+
+### Step 3. Automate the test process on each Git push, pull request
+
+
+--- end Jenkins -----
 
 ## Build and run dockers manually
+
+In this section, more details about how to build an run docker is written.
 
 build docker 
 
