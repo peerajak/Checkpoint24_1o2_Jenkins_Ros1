@@ -92,6 +92,10 @@ See a succesful result
 
 ![alt text](Jenkins_website_a7_00.png)
 
+Build the project again, this time check the gazebo, you should see the robot moving to the testing waypoint
+
+![alt text](Jenkins_website_a7_01.png)
+
 - follow Section24, Unit 10.13 until the end.
 
 ## Build and run dockers manually
