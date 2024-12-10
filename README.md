@@ -38,7 +38,21 @@ Finally a working jenkin website. Later will be call dashboard, as you can see t
 If you happen to get to the dashbord image without installing procedures before, just do the next step.
 
 ###  Create an empty Jenkins pipeline for automating the test process
-- follow Section24, Unit 10.8 until the end.
+
+Install all required plugin 
+
+![alt text](Jenkins_website_61_00.png)
+![alt text](Jenkins_website_71_00.png)
+![alt text](Jenkins_website_72_00.png)
+
+Add new pipeline, name it ros1_ci as shown in the image
+
+![alt text](Jenkins_website_a1_00.png)
+![alt text](Jenkins_website_a2_00.png)
+![alt text](Jenkins_website_a3_00.png)
+![alt text](Jenkins_website_a4_00.png)
+
+- follow Section24, Unit 10.13 until the end.
 
 ## Build and run dockers manually
 
