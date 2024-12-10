@@ -187,6 +187,16 @@ Warning: Permanently added 'github.com,20.205.243.166' (ECDSA) to the list of kn
 ```
 Anwser is 'Y'
 
+To test the webhook, on a Terminal
+
+```
+touch tmp.txt
+echo "some random text" >> tmp.txt
+git add tmp.txt
+git commit -m "add tmp.txt for just updating, but I am waiting to see Jenkin webhook to build"
+git push origin master
+```
+
 --- end Jenkins -----
 
 ## Build and run dockers manually
