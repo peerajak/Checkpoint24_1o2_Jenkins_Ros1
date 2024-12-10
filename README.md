@@ -52,6 +52,46 @@ Add new pipeline, name it ros1_ci as shown in the image
 ![alt text](Jenkins_website_a3_00.png)
 ![alt text](Jenkins_website_a4_00.png)
 
+Place the following script into the box shown in image and click add build step
+
+```
+#!/bin/bash
+cd /home/user/catkin_ws/src
+echo "Will check if we need to clone or just pull"
+if [ ! -d "ros1_ci" ]; then
+  git clone https://github.com/peerajak/Checkpoint24_1o2_Jenkins_Ros1.git ros1_ci
+else
+  cd ros1_ci
+  git pull origin main
+fi
+```
+![alt text](Jenkins_website_a5_00.png)
+
+Repeat the add build step with the following code
+
+```
+cd /home/user/catkin_ws/src/ros1_ci
+docker build -t tortoisebot-waypoints-test:v1 .
+```
+
+Repeat the add build step with the following code
+
+```
+docker context use default
+xhost +local:root
+docker run --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix tortoisebot-waypoints-test:v1 
+```
+
+Finally Click Save
+
+Build the project
+
+![alt text](Jenkins_website_a6_00.png)
+
+See a succesful result
+
+![alt text](Jenkins_website_a7_00.png)
+
 - follow Section24, Unit 10.13 until the end.
 
 ## Build and run dockers manually
@@ -67,7 +107,7 @@ docker build -t tortoisebot-waypoints-test:v1 .
 ```
 docker context use default
 xhost +local:root
-docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -tortoisebot-waypoints-test:v1 
+docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix tortoisebot-waypoints-test:v1 
 ```
 - Running on my Local computer
 
