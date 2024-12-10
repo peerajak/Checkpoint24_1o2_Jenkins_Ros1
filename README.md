@@ -105,6 +105,87 @@ Build the project again, this time check the gazebo, you should see the robot mo
 
 ### Step 3. Automate the test process on each Git push, pull request
 
+```
+cd ~/webpage_ws
+wget -nc https://raw.githubusercontent.com/TheConstructAi/jenkins_demo/master/setup_ssh_git.sh && bash setup_ssh_git.sh
+cat /home/user/.ssh/id_rsa.pub
+```
+
+The result should look like this
+
+```
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCe/3HfHfwiz3Cxi3UyFTj5rDGhOIz29/TWP3OkqZCeUSg3I/srkQgLe125D8dlMn1xSlOvAHMtdM7V96ngqDAlnlqW9Tto+m0EdMVfNU0Ygzc3PBirCdcnTEMiS9yQEE4t7feUhIHXb16tjtLKxJVYTfz6wTt8ODWwkhEa7zTxlPrl9XG6GVKXu61EYdFiuZhbA2Rgvkqp7Yt4f8Ugkom+0tjXQws+jJEwAzzRrrHYfloGs3pTU6ixOBqnt4dNUN0xm2MU22d1WSmYEK4NyChl8M70VpwprVycNQMcTg+cFbntds/DTukVMsL/uxaiaxm2QyhbcUxGuDRF9t3rEw3ALwFdk/9iR8IAxXfRMJf+kCUUIgdvwGo+of/Tv+85bwLzESSTU1CiyhN7wYCAomnRCv5wrKDN75UYeNLtRFIYr2d6/84E7OT4PL0kTkjTgUhlx9Atbm9aTyl7h24bZqGhpFhIRU46/4sBpSt0T1E3G75QPl8fwqlrZvdLcpOlhE0=
+```
+
+Add Deploy key. Deploy Key allows Jenkins to query changes in Github repository
+Go to github repository of your project, press setting
+
+![alt text](Jenkins_website_73_00.png)
+
+then
+
+![alt text](Jenkins_website_74_00.png)
+![alt text](Jenkins_website_75_00.png)
+![alt text](Jenkins_website_76_00.png)
+![alt text](Jenkins_website_77_00.png)
+
+then at Jenkin Website
+
+![alt text](Jenkins_website_78_00.png)
+![alt text](Jenkins_website_79_00.png)
+![alt text](Jenkins_website_79_01.png)
+![alt text](Jenkins_website_79_02.png)
+
+on a Terminal, do
+
+```
+cat /home/user/.ssh/id_rsa
+```
+
+you should get the result like this
+
+```
+-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
+NhAAAAAwEAAQAAAYEAnv9x3x38Is9wsYt1MhU4+awxoTiM9vf01j9zpKmQnlEoNyP7K5EI
+C3tduQ/HZTJ9cUpTrwBzLXTO1fep4KgwJZ5alvU7aPptBHTFXzVNGIM3NzwYqwnXJ0xDIk
+vckBBOLe33lISB129erY7SysSVWE38+sE7fDg1sJIRGu808ZT65fVxuhlSl7utRGHRYrmY
+T7KJ6kDR3XBhC427dAJaFQYNs/zVLv4jUlsXwCGmpoQ9HE9NQT3pWWcD9CO+7eus9+thqM
+5WBbOrSXJaXrum96p0vq6QwOpgG88PIDwJc1nvn2+Z6cMF8IlTDEfAS1Q2SoKz01QxYz3A
+To+u53bSqYP4sAAAAAAQID
+-----END OPENSSH PRIVATE KEY-----
+```
+
+Copy this result starting with -----Begin ending with END OPENSSH PRIVATE KEY-----, and place it to the Jenken website Key Box
+Then Click Create.
+
+![alt text](Jenkins_website_79_03.png)
+
+Create a Webhook
+
+at a Terminal, do
+
+```
+echo "$(jenkins_address)github-webhook/"
+```
+![alt text](Jenkins_website_79_04.png)
+![alt text](Jenkins_website_79_05.png)
+![alt text](Jenkins_website_79_06.png)
+![alt text](Jenkins_website_79_07.png)
+![alt text](Jenkins_website_79_08.png)
+![alt text](Jenkins_website_79_09.png)
+![alt text](Jenkins_website_79_10.png)
+![alt text](Jenkins_website_79_11.png)
+
+If there is an error at the git source box, saying something like "ECDSA key error", check the CLI, if there is an additional message on CLI asking, then
+
+```
+The authenticity of host 'github.com (20.205.243.166)' can't be established.
+ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'github.com,20.205.243.166' (ECDSA) to the list of known hosts.
+```
+Anwser is 'Y'
 
 --- end Jenkins -----
 
