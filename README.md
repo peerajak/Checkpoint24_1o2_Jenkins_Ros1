@@ -2,6 +2,46 @@
 
 ## Quick guide
 
+install docker
+
+```
+cd 
+./course_install.sh
+```
+
+start jenkins
+
+```
+cd ~/webpage_ws
+./start_jenkins.sh
+```
+
+To find the address of jenkins website
+
+```
+echo "$(jenkins_address)"
+```
+
+Keep pressing ctrl- button and click on the website url on CLI
+
+Your broswer should show jenkin website asking user, and password.
+
+For user, its "admin"
+
+To find the password, open the file ~/webpage_ws/jenkins_installation_log.log , which is the installation log, looks for something like
+
+```
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+211113e4d711aabb11185d689111113fda5
+```
+
+The number at the position of "211113e4d711aabb11185d689111113fda5" is the password. Copy that to clip board, and paste this into password input box in the jenkins website.
+
+Do the pull request to github https://github.com/peerajak/Checkpoint24_1o2_Jenkins_Ros1.git
+
+
 ## Jenkins
 
 There are 3 steps
@@ -27,10 +67,10 @@ Open the file ~/webpage_ws/jenkins_installation_log.log looks for something like
 Jenkins initial setup is required. An admin user has been created and a password generated.
 Please use the following password to proceed to installation:
 
-299263e4d7c34fb9b85d689ae603fda5
+211113e4d7111111185d689111113fda5
 ```
 
-The number at the position of "299263e4d7c34fb9b85d689ae603fda5" is the password. Copy that to clip board, and paste this into password input box in the jenkins website.
+The number at the position of "211113e4d7111111185d689111113fda5" is the password. Copy that to clip board, and paste this into password input box in the jenkins website.
 
 ![alt text](Jenkins_website_01_00.png)
 ![alt text](Jenkins_website_02_00.png)
