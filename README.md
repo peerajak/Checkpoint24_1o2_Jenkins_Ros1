@@ -8,6 +8,14 @@ install docker
 cd 
 ./course_install.sh
 ```
+To make docker run on user without sudo
+
+```
+sudo groupadd docker
+sudo usermod -aG docker $USER
+sudo gpasswd -a $USER docker
+newgrp docker
+```
 
 start jenkins
 
@@ -28,18 +36,12 @@ Your broswer should show jenkin website asking user, and password.
 
 For user, its "admin"
 
-To find the password, open the file ~/webpage_ws/jenkins_installation_log.log , which is the installation log, looks for something like
+password is
 
 ```
-Jenkins initial setup is required. An admin user has been created and a password generated.
-Please use the following password to proceed to installation:
-
-211113e4d711aabb11185d689111113fda5
+299263e4d7c34fb9b85d689ae603fda5
 ```
 
-The number at the position of "211113e4d711aabb11185d689111113fda5" is the password. Copy that to clip board, and paste this into password input box in the jenkins website.
-
-Do the pull request to github https://github.com/peerajak/Checkpoint24_1o2_Jenkins_Ros1.git
 
 
 ## Jenkins
@@ -117,7 +119,7 @@ Repeat the add build step with the following code
 
 ```
 cd /home/user/catkin_ws/src/ros1_ci
-docker build -t tortoisebot-waypoints-test:v1 .
+docker pull peerajakcp22/tortoisebot-waypoints-ros1-test:v1
 ```
 
 Repeat the add build step with the following code
@@ -125,7 +127,7 @@ Repeat the add build step with the following code
 ```
 docker context use default
 xhost +local:root
-docker run --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix tortoisebot-waypoints-test:v1 
+docker run --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix peerajakcp22/tortoisebot-waypoints-ros1-test:v1
 ```
 
 Finally Click Save
@@ -147,7 +149,7 @@ Build the project again, this time check the gazebo, you should see the robot mo
 
 ```
 cd ~/webpage_ws
-wget -nc https://raw.githubusercontent.com/TheConstructAi/jenkins_demo/master/setup_ssh_git.sh && bash setup_ssh_git.sh
+bash setup_ssh_git.sh
 cat /home/user/.ssh/id_rsa.pub
 ```
 
@@ -267,7 +269,12 @@ In this section, more details about how to build an run docker is written.
 build docker 
 
 ```
-docker build -t tortoisebot-waypoints-test:v1 .
+docker build -t tortoisebot-waypoints-ros1-test:v1 .
+```
+
+```
+docker tag tortoisebot-waypoints-ros1-test:v1 peerajakcp22/tortoisebot-waypoints-ros1-test:v1
+docker push peerajakcp22/tortoisebot-waypoints-ros1-test:v1
 ```
 
 - Running on the construct's computer
@@ -275,14 +282,14 @@ docker build -t tortoisebot-waypoints-test:v1 .
 ```
 docker context use default
 xhost +local:root
-docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix tortoisebot-waypoints-test:v1 
+docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix tortoisebot-waypoints-ros1-test:v1 
 ```
 - Running on my Local computer
 
 ```
 docker context use default
 xhost +local:root
-docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --gpus all --net=host tortoisebot-waypoints-test:v1 
+docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --gpus all --net=host tortoisebot-waypoints-ros1-test:v1 
 ```
 
 
