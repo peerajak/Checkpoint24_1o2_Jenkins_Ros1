@@ -1,0 +1,9 @@
+Host github.com-Checkpoint24_1o2_Jenkins_Ros1
+        Hostname github.com
+        IdentityFile=/home/user/.ssh/id_rsa
+        IdentitiesOnly yes
+
+Host github.com-Checkpoint24_2o2_Jenkins_Ros2
+        Hostname github.com
+        IdentityFile=/home/user/.ssh/id_rsa_2nd
+        IdentitiesOnly yes

@@ -24,24 +24,14 @@ cd ~/webpage_ws
 ./start_jenkins.sh
 ```
 
-To find the address of jenkins website
+The 3 latest output of start_jenkins.sh should show the following data
+1. jenkins website
+2. password
+3. webhook
 
-```
-echo "$(jenkins_address)"
-```
+Copy webhook address to clipboard, and paste it at your github repository
 
-Keep pressing ctrl- button and click on the website url on CLI
-
-Your broswer should show jenkin website asking user, and password.
-
-For user, its "admin"
-
-password is
-
-```
-299263e4d7c34fb9b85d689ae603fda5
-```
-
+![alt text](Jenkins_website_79_04.png)
 
 
 ## Jenkins
