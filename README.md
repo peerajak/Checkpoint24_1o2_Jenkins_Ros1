@@ -2,7 +2,7 @@
 
 ## Quick guide
 
-install docker
+1. install docker
 
 ```
 cd 
@@ -17,7 +17,7 @@ sudo gpasswd -a $USER docker
 newgrp docker
 ```
 
-start jenkins
+2. start jenkins
 
 ```
 cd ~/webpage_ws
@@ -25,13 +25,36 @@ cd ~/webpage_ws
 ```
 
 The 3 latest output of start_jenkins.sh should show the following data
-1. jenkins website
-2. password
-3. webhook
+- jenkins website
+- password
+- webhook
 
-Copy webhook address to clipboard, and paste it at your github repository
+3. Copy webhook address to clipboard, and paste it at your github repository
 
 ![alt text](Jenkins_website_79_04.png)
+
+
+4. sign in jenkins
+
+5. copy ssh_config to ~/.ssh/config
+
+```
+cd /home/user/catkin_ws/src/ros1_ci
+cp ssh_config ~/.ssh/config
+```
+
+6. Generate two ssh keys
+
+```
+cd ~/webpage_ws
+bash setup_ssh_git.sh
+bash setup_2nd_ssh_git.sh
+rm ~/.ssh/known_hosts
+```
+
+7. create jenkins user credential for both project
+8. change deploy key on Github for both projects
+9. config git source for both projects.
 
 
 ## Jenkins
@@ -283,3 +306,25 @@ docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --gpus 
 ```
 
 
+## Trouble shooting
+
+if jenkins error at github source saying 
+
+```
+Failed to connect to repository : Command "git ls-remote -h -- git@github.com:peerajak/Checkpoint24_2o2_Jenkins_Ros2.git HEAD" returned status code 128:
+stdout:
+stderr: No ECDSA host key is known for github.com and you have requested strict checking.
+Host key verification failed.
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+```
+
+open a terminal and
+
+```
+git ls-remote -h -- git@github.com:peerajak/Checkpoint24_2o2_Jenkins_Ros2.git HEAD
+```
+
+answer yes.
