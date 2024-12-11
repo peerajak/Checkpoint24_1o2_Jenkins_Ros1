@@ -295,14 +295,14 @@ docker push peerajakcp22/tortoisebot-waypoints-ros1-test:v1
 ```
 docker context use default
 xhost +local:root
-docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix tortoisebot-waypoints-ros1-test:v1 
+docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix peerajakcp22/tortoisebot-waypoints-ros1-test:v1 
 ```
 - Running on my Local computer
 
 ```
 docker context use default
 xhost +local:root
-docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --gpus all --net=host tortoisebot-waypoints-ros1-test:v1 
+docker run -it --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --gpus all --net=host peerajakcp22/tortoisebot-waypoints-ros1-test:v1 
 ```
 
 
