@@ -2,12 +2,39 @@
 
 ## Quick guide
 
+0. install xorg
+
+```
+sudo apt update
+sudo apt install xorg
+```
+
 1. install docker
 
 ```
 cd 
 ./course_install.sh
 ```
+
+or
+
+Install docker
+
+```
+sudo apt update
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+apt-cache policy docker-ce
+sudo apt install docker-ce -y
+```
+
+Check docker daemon running
+
+```
+sudo systemctl start docker
+sudo systemctl status docker
+```
+
 To make docker run on user without sudo
 
 ```
@@ -20,10 +47,30 @@ newgrp docker
 2. start jenkins
 
 ```
+cd catkin_ws/src/
+git clone https://github.com/peerajak/Checkpoint24_1o2_Jenkins_Ros1.git ros1_ci
+cd ros1_ci/
+chmod +x start_jenkins.sh
+cp start_jenkins.sh ~/webpage_ws/
+```
+
+```
 cd ~/webpage_ws
 ./start_jenkins.sh
 ```
 
+
+Jenkins webpage address
+
+```
+echo "$(jenkins_address)"
+```
+
+Jenkins webhook address
+
+```
+echo "$(jenkins_address)github-webhook/"
+```
 The 3 latest output of start_jenkins.sh should show the following data
 - jenkins website
 - password
@@ -74,15 +121,10 @@ cd ~/webpage_ws
 ```
 Copy the URL address starting from "https://" to the end of the line, and paste to browser, or alternatively, place ctrl while click on the word "https"
 
-Go to web browser, with corresponding site. From now on this web browser, with this address, will be called Jenkins website.
-
-Open the file ~/webpage_ws/jenkins_installation_log.log looks for something like
+Password
 
 ```
-Jenkins initial setup is required. An admin user has been created and a password generated.
-Please use the following password to proceed to installation:
-
-211113e4d7111111185d689111113fda5
+cat /home/user/webpage_ws/jenkins/secrets/initialAdminPassword
 ```
 
 The number at the position of "211113e4d7111111185d689111113fda5" is the password. Copy that to clip board, and paste this into password input box in the jenkins website.
