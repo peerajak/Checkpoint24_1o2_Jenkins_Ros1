@@ -74,6 +74,14 @@ echo "$(jenkins_address)github-webhook/"
 The 3 latest output of start_jenkins.sh should show the following data
 - jenkins website
 - password
+
+Password
+
+```
+cat /home/user/webpage_ws/jenkins/secrets/initialAdminPassword
+```
+
+
 - webhook
 
 3. Copy webhook address to clipboard, and paste it at your github repository
