@@ -23,7 +23,7 @@ source /tortoisebot_ws/devel/setup.bash
 # 1. call gazebo
 echo "$(date +'[%Y-%m-%d %T]') Starting gazebo..."
 roslaunch tortoisebot_gazebo tortoisebot_playground.launch &
-sleep 6
+sleep 12
 
 # 2. Use rostest to start Waypoint Server and waypoints_test
 echo "$(date +'[%Y-%m-%d %T]') Starting rostest..." 
